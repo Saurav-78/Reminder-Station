@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const auth = require("../middleware/authmiddleware");
+const {addReminder, getReminders, deleteReminder, toggleComplete, countReminders, updateReminders} = require("../controllers/remindercontroller");
+router.post("/add", auth, addReminder);
+router.get("/all", auth, getReminders);
+router.delete("/delete/:id", auth, deleteReminder);
+router.put("/complete/:id", auth, toggleComplete);
+router.put("/update/:id", auth, updateReminders);
+router.get("/count", auth, countReminders);
+module.exports = router;
