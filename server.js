@@ -23,8 +23,18 @@ cron.schedule("* * * * *", async()=>{
     for(const r of reminders){
         for(const rDate of r.reminderDates){
          const reminderTime = new Date(rDate);
+         const alreadySent = r.sendReminderDates.some(
+            d=>new Date(d).getTime()===reminderTime.getTime()
+            
+         );
+         if(alreadySent)continue;
+         if(now>=reminderTime){
+         await sendReminderMail(r.title, r.discription, r.priority, r.maindate);
+         r.sendReminderDates.push(reminderTime);
+         await r.save();
         }
     }
+}
 })
 const port = 5000;
 app.listen(port,()=>console.log("Server is running on port 5000. :)"));
