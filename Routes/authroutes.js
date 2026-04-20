@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { singup, login} = require("../controllers/authcontroller");
-router.post("/singup", singup);
+const { signup, login} = require("../controllers/authcontroller");
+router.post("/signup", signup);
 router.post("/login", login);
 module.exports = router;
