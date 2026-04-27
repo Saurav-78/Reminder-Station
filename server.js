@@ -76,7 +76,7 @@ const connectDB = require('./Config/DB');
 const authroutes = require('./routes/authRoutes');
 const reminderroutes = require('./Routes/reminderroutes');
 const Reminder = require('./models/Reminder');
-const sendReminderMail = require('./Utils/mailer');
+const sendReminderMail = require('./Utils/mail');
 
 const app = express();
 app.use(cors());
