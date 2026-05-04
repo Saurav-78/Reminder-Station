@@ -5,7 +5,7 @@ const cron = require('node-cron');
 dotenv.config();
 
 const connectDB = require('./Config/DB');
-const authroutes = require('./routes/authRoutes');
+const authroutes = require('./Routes/authRoutes');
 const reminderroutes = require('./Routes/reminderroutes');
 const Reminder = require('./models/Reminder');
 const User = require('./models/user');
